@@ -5,6 +5,7 @@ import AllInclusiveRoundedIcon from '@material-ui/icons/AllInclusiveRounded';
 import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
 import ExpandMoreSharpIcon from '@material-ui/icons/ExpandMoreSharp';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
+import SidebarChat from './SidebarChat';
 
 
 
@@ -55,8 +56,8 @@ function Sidebar() {
 
 {/* components... */}
 <SidebarChat/>
-{/* <SidebarChat/>
-<SidebarChat/> */}
+<SidebarChat/>
+<SidebarChat/>
 
         </div>
 
