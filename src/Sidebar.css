@@ -25,3 +25,32 @@
   margin-right: 2vw;
   font-size: 24px !important;
 }
+
+.sidebar__search {
+  display: flex;
+  align-items: center;
+  background-color: #ececec;
+  height: 39px;
+  padding: 10px;
+}
+
+.sidebar__searchContainer {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  height: 35px;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.sidebar__searchContainer > input {
+  border: none;
+  outline-width: 0;
+  margin-left: 10px;
+}
+
+/* .Mui - Material UI */
+.sidebar__searchContainer > .MuiSvgIcon-root {
+  color: gray;
+  padding: 10px;
+}
