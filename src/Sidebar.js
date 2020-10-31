@@ -4,7 +4,7 @@ import {Avatar, IconButton} from '@material-ui/core';
 import AllInclusiveRoundedIcon from '@material-ui/icons/AllInclusiveRounded';
 import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
 import ExpandMoreSharpIcon from '@material-ui/icons/ExpandMoreSharp';
-
+import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 
 
 
@@ -43,8 +43,14 @@ function Sidebar() {
         </div> 
 
         <div className= "sidebar__search">
+        <div className = "sidebar__searchContainer">
 
+        <SearchOutlinedIcon/>
+<input placeholder = "search" type = "text"/>
+
+        </div>
 </div>
+
         <div className = "sidebar__chats">
 
         </div>
