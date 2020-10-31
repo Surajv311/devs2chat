@@ -8,9 +8,21 @@ function App() {
   return (
 
     //  we use BEM naming convention 
-    <div className="App">
-     
-<h1> working ...</h1>
+    <div className="app">
+
+<div className = "app__body">
+
+{/* Sidebar component */}
+
+
+
+
+
+
+{/* Chat component */}
+
+</div>
+
 
     </div>
   );
