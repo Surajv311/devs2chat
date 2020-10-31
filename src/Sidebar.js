@@ -5,7 +5,19 @@ import './Sidebar.css'
 function Sidebar() {
     return (
         <div className = "sidebar">
-            <h1>sidebar</h1>
+        
+        {/* we have sections in our sidebar... */}
+        <div className = "sidebar__header">
+
+</div> 
+        <div className= "sidebar__search">
+
+</div>
+        <div className = "sidebar__chats">
+
+        </div>
+
+
         </div>
     )
 }
