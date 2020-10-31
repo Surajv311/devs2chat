@@ -53,6 +53,11 @@ function Sidebar() {
 
         <div className = "sidebar__chats">
 
+{/* components... */}
+<SidebarChat/>
+{/* <SidebarChat/>
+<SidebarChat/> */}
+
         </div>
 
 
