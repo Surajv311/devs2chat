@@ -6,7 +6,7 @@ import './SidebarChat.css'
 function SidebarChat() {
     return (
         <div className = "sidebarChat">
-            <Avatar/>
+            <Avatar src = "https://avatars.dicebear.com/api/bottts/1234.svg"/>
 
 <div className = "sidebarChat__info">
 
