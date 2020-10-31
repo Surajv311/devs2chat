@@ -1,0 +1,27 @@
+.sidebar {
+  /*  we must display 60:40 percent of sidebar and the chat component... */
+  display: flex;
+  flex-direction: column;
+
+  /* takes 35% of screen */
+  flex: 0.35;
+}
+
+.sidebar__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 22px;
+  border-right: 1px solid lightgray;
+}
+
+.sidebar__headerRight {
+  display: flex;
+  justify-content: space-between;
+  min-width: 10vw;
+  align-items: center;
+}
+
+.sidebar__headerRight > .MuiSvgIcon-root {
+  margin-right: 2vw;
+  font-size: 24px !important;
+}
