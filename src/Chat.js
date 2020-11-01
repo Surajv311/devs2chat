@@ -5,6 +5,11 @@ import React, { useState, useEffect } from 'react';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import AttachFileOutlinedIcon from '@material-ui/icons/AttachFileOutlined';
 import ExpandMoreSharpIcon from '@material-ui/icons/ExpandMoreSharp';
+import MoodIcon from '@material-ui/icons/Mood';
+import MicOutlinedIcon from '@material-ui/icons/MicOutlined';
+
+
+
 
 function Chat() {
 
@@ -88,13 +93,32 @@ function Chat() {
             
             
             
+{/* for inserting emoji icon */}
+<MoodIcon/>
+
+<form>
+<input
+// value = {input}
+// onChange = { (e) => setInput(e.target.value)}
+placeholder = "Message ?"
+type = "text"/>
+<button 
+// onClick = {sendMessage} 
+// type = "submit"
+>
+Send
+</button>
+</form>
+
+<MicOutlinedIcon/>
+
             
             
             </div>
 
 
         </div>
-    )
-}
+    );
+};
 
 export default Chat
