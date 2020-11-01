@@ -9,7 +9,7 @@
   padding: 100px;
   text-align: center;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 15px;
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.3);
 }
 .login__container img {
@@ -19,13 +19,14 @@
 .login__container button {
   margin-top: 50px;
   text-transform: inherit !important;
-  background-color: #0fb45c;
+  background-color: #6a00a8;
   color: white;
+  border-radius: 10px;
 }
 .login__container button:hover {
   text-transform: inherit !important;
-  background-color: #0b9c4f;
-  color: white;
+  background-color: white;
+  color: #6a00a8;
 }
 @media (max-width: 628px) {
   .login__container {
