@@ -21,30 +21,10 @@
   text-transform: inherit !important;
   background-color: #6a00a8;
   color: white;
-  border-radius: 10px;
+  border-radius: 40px;
 }
 .login__container button:hover {
   text-transform: inherit !important;
-  background-color: white;
-  color: #6a00a8;
-}
-@media (max-width: 628px) {
-  .login__container {
-    width: 80vw;
-    padding: 10vw 5vw;
-  }
-  .login__container img {
-    object-fit: contain;
-    width: 35vw;
-  }
-  .login__text {
-    font-size: 0.5em;
-  }
-  .login__container button {
-    margin-top: 10px;
-  }
-  .login__container img {
-    object-fit: contain;
-    margin-bottom: 20px;
-  }
+  background-color: rgb(179, 255, 208);
+  color: #000000;
 }

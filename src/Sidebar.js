@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Sidebar.css";
 import { Avatar, IconButton } from "@material-ui/core";
 import AllInclusiveRoundedIcon from "@material-ui/icons/AllInclusiveRounded";
@@ -7,12 +7,15 @@ import ExpandMoreSharpIcon from "@material-ui/icons/ExpandMoreSharp";
 import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 import SidebarChat from "./SidebarChat";
 import db from "./firebase";
-import firebase from "firebase";
+import { useStateValue } from "./StateProvider";
 
 function Sidebar() {
   const [rooms, setRooms] = useState([]);
   // rooms collection created in firestore
   //   snapshot ... //     takes a snapshot of db everytime...
+
+  // to put user image on dp
+  const [{ user }, dispatch] = useStateValue();
 
   useEffect(() => {
     const unsubscribe = db.collection("rooms").onSnapshot((snapshot) =>
@@ -35,7 +38,9 @@ function Sidebar() {
     <div className="sidebar">
       {/* we have sections in our sidebar... */}
       <div className="sidebar__header">
-        <Avatar />
+        {/* as if user has no pic then avatar would be empty... */}
+        {/* inspect element & you'll see photoURL in the code snippets displayed when you login via Google... */}
+        <Avatar src={user?.photoURL} />
 
         <div className="sidebar__headerRight">
           {/* adding icons from material UI  */}

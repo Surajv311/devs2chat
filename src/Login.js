@@ -19,12 +19,6 @@ function Login() {
           type: actionTypes.SET_USER,
           user: result.user,
         });
-        dispatch({
-          type: actionTypes.SET_SESSION,
-          uid: result.user.uid,
-          displayName: result.user.displayName,
-          photoURL: result.user.photoURL,
-        });
       })
       .catch((err) => alert(err.message));
   };
@@ -32,7 +26,10 @@ function Login() {
   return (
     <div className="login">
       <div className="login__container">
-        <img src="../img/dmc.jpg" alt="devmeetchat" />
+        {/* <img
+        src = ""
+       alt="devmeetchat"
+        /> */}
         <div className="login__text">
           <h1>Sign in to devmeetchat</h1>
         </div>

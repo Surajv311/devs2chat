@@ -7,6 +7,9 @@ import ExpandMoreSharpIcon from "@material-ui/icons/ExpandMoreSharp";
 import MoodIcon from "@material-ui/icons/Mood";
 import MicOutlinedIcon from "@material-ui/icons/MicOutlined";
 import { Link, useParams } from "react-router-dom";
+import db from "./firebase";
+import firebase from "firebase";
+import { useStateValue } from "./StateProvider";
 
 function Chat() {
   // {messages}
@@ -14,6 +17,29 @@ function Chat() {
   const [input, setInput] = useState("");
   const [seed, setSeed] = useState("");
   const { roomId } = useParams();
+  const [roomName, setRoomName] = useState("");
+  const [messages, setMessages] = useState([]);
+  const [{ user }, dispatch] = useStateValue();
+
+  useEffect(() => {
+    // adding room ...
+    if (roomId) {
+      db.collection("rooms")
+        .doc(roomId)
+        .onSnapshot((snapshot) => {
+          setRoomName(snapshot.data().name);
+        });
+
+      // to pull the messages we put on firestore...
+      db.collection("rooms")
+        .doc(roomId)
+        .collection("messages")
+        .orderBy("timestamp", "asc")
+        .onSnapshot((snapshot) => {
+          setMessages(snapshot.docs.map((doc) => doc.data()));
+        });
+    }
+  }, [roomId]);
 
   {
     /* using Hooks.. */
@@ -22,13 +48,20 @@ function Chat() {
   useEffect(() => {
     //   this would generate random pics from dicebear... to diplay on chat dp
     setSeed(Math.floor(Math.random() * 5000));
-  }, []);
+  }, [roomId]);
 
   const sendMessage = (e) => {
     // to prevent the refresh of page when you press enter
     e.preventDefault();
 
     console.log("typed->", input);
+
+    db.collection("rooms").doc("roomId").collection("messages").add({
+      messages: input,
+      name: user.displayName, // displayName from google authentication ...
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      // serevrtimestamp would help to resolve conflict in time across various time zones of world...
+    });
 
     // cleans input everytime you hit enter
 
@@ -42,8 +75,14 @@ function Chat() {
 
         <div className="chat__headerInfo">
           {/* to display the header */}
-          <h3> room name</h3>
-          <p> last seen...</p>
+          <h3> {roomName}</h3>
+          <p>
+            {" "}
+            last seen {/* last seen message time ... */}
+            {new Date(
+              messages[messages.length - 1]?.timestamp?.toDate()
+            ).toUTCString()}
+          </p>
         </div>
 
         <div className="chat__headerRight">
@@ -63,14 +102,24 @@ function Chat() {
       </div>
 
       <div className="chat__body">
-        <p className={`chat__message ${true && "chat__receiver"}`}>
-          <span className="chat__name">
-            {/* {message.name} */}
-            hollliiii
-          </span>
-          hifhfie
-          <span className="chat__timestamp">{new Date().toUTCString()}</span>
-        </p>
+        {messages.map((message) => (
+          <p
+            className={`chat__message ${
+              // if two people have same name then it may conflict so we have to define an id everytime for better o/p... here just testing..
+              message.name === user.displayName && "chat__receiver"
+            }`}
+          >
+            <span className="chat__name">
+              {message.name}
+              {/* Suraj  */}
+            </span>
+            {/* HI guys */}
+            {message.message}
+            <span className="chat__timestamp">
+              {new Date(message.timestamp?.toDate()).toUTCString()}
+            </span>
+          </p>
+        ))}
       </div>
 
       <div className="chat__footer">
