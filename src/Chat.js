@@ -12,9 +12,9 @@ import MicOutlinedIcon from '@material-ui/icons/MicOutlined';
 
 
 function Chat() {
+// {messages}
 
-  
-
+        const [input, setInput] = useState(""); 
         const [seed, setSeed] = useState(''); 
                         
         {/* using Hooks.. */}
@@ -24,14 +24,19 @@ function Chat() {
           setSeed(Math.floor(Math.random()*5000))
         }, []);
         
+     
+        const sendMessage =  (e) => {
+  
+            // to prevent the refresh of page when you press enter
+e.preventDefault(); 
 
+console.log('typed->', input);
+        };
+          
 
     return (
         <div className = "chat">
-            
-
-
-            <div className = "chat__header">
+           <div className = "chat__header">
             
             <Avatar src = {`https://avatars.dicebear.com/api/bottts/${seed}.svg`}  />
             
@@ -98,13 +103,13 @@ function Chat() {
 
 <form>
 <input
-// value = {input}
-// onChange = { (e) => setInput(e.target.value)}
+value = {input}
+onChange = { (e) => setInput(e.target.value)}
 placeholder = "Message ?"
 type = "text"/>
 <button 
-// onClick = {sendMessage} 
-// type = "submit"
+onClick = {sendMessage} 
+type = "submit"
 >
 Send
 </button>
