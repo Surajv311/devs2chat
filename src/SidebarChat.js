@@ -19,7 +19,10 @@ function SidebarChat({ id, name, addNewChat }) {
   const createChat = () => {
     const roomName = prompt("Please enter the name of Chat room");
     if (roomName) {
-      // if name of room entered then only execute this ... db stuff...
+      // if name of room entered then execute this ... db stuff...in firebase new data of room is added
+      db.collection("rooms").add({
+        name: roomName,
+      });
     }
   };
   return !addNewChat ? (
@@ -43,3 +46,5 @@ function SidebarChat({ id, name, addNewChat }) {
 }
 
 export default SidebarChat;
+
+// react router will help to fetch related data chats of the given room when we visit it

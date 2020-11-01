@@ -15,7 +15,7 @@ function Sidebar() {
   //   snapshot ... //     takes a snapshot of db everytime...
 
   useEffect(() => {
-    db.collection("rooms").onSnapshot((snapshot) =>
+    const unsubscribe = db.collection("rooms").onSnapshot((snapshot) =>
       setRooms(
         snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -24,6 +24,11 @@ function Sidebar() {
       )
     );
     // the unique id & data in collections in firestore...
+
+    return () => {
+      unsubscribe();
+      //     would mean that you detach the real time listener after its done using the above useEffect...
+    };
   }, []);
 
   return (
