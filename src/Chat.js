@@ -6,12 +6,14 @@ import AttachFileOutlinedIcon from "@material-ui/icons/AttachFileOutlined";
 import ExpandMoreSharpIcon from "@material-ui/icons/ExpandMoreSharp";
 import MoodIcon from "@material-ui/icons/Mood";
 import MicOutlinedIcon from "@material-ui/icons/MicOutlined";
+import { Link, useParams } from "react-router-dom";
 
 function Chat() {
   // {messages}
 
   const [input, setInput] = useState("");
   const [seed, setSeed] = useState("");
+  const { roomId } = useParams();
 
   {
     /* using Hooks.. */

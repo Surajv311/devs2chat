@@ -10,19 +10,20 @@ function App() {
     <div className="app">
       <div className="app__body">
         <Router>
+          {/* using route parameters in React */}
+
+          {/* Sidebar component */}
+
+          <Sidebar />
           <Switch>
-            <Route path="/app">
-              {/* Sidebar component */}
-
-              <Sidebar />
-
+            <Route path="/rooms/:roomId">
               {/* Chat component */}
-
               <Chat />
             </Route>
             <Route path="/">
-              {/* when you reach "/" then render the Home... */}
-              <h1> Home</h1>
+              {/* when you reach "/" then render the Home...
+              <h1> Home</h1> */}
+              <Chat />
             </Route>
           </Switch>
         </Router>
