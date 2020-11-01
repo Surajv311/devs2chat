@@ -1,97 +1,74 @@
-import React, { useState, useEffect } from 'react';
-import './Sidebar.css'
-import {Avatar, IconButton} from '@material-ui/core';
-import AllInclusiveRoundedIcon from '@material-ui/icons/AllInclusiveRounded';
-import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
-import ExpandMoreSharpIcon from '@material-ui/icons/ExpandMoreSharp';
-import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
-import SidebarChat from './SidebarChat';
-import db from './firebase'; 
-
+import React, { useState, useEffect } from "react";
+import "./Sidebar.css";
+import { Avatar, IconButton } from "@material-ui/core";
+import AllInclusiveRoundedIcon from "@material-ui/icons/AllInclusiveRounded";
+import ChatRoundedIcon from "@material-ui/icons/ChatRounded";
+import ExpandMoreSharpIcon from "@material-ui/icons/ExpandMoreSharp";
+import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
+import SidebarChat from "./SidebarChat";
+import db from "./firebase";
+import firebase from "firebase";
 
 function Sidebar() {
+  const [rooms, setRooms] = useState([]);
+  // rooms collection created in firestore
+  //   snapshot ... //     takes a snapshot of db everytime...
 
+  useEffect(() => {
+    db.collection("rooms").onSnapshot((snapshot) =>
+      setRooms(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
+    // the unique id & data in collections in firestore...
+  }, []);
 
-        const [rooms,setRooms] = useState([]);
-        useEffect(()=>{
-                // rooms collection created in firestore
-          
-        //   snapshot ... //     takes a snapshot of db everytime...
+  return (
+    <div className="sidebar">
+      {/* we have sections in our sidebar... */}
+      <div className="sidebar__header">
+        <Avatar />
 
-db.collection('rooms').onSnapshot((snapshot) =>
-                        setRooms(
-                                snapshot.docs.map(
-                                (doc) =>
-                                (
-                                        {
-                                                id: doc.id,
-                                                data : doc.data(),
-                                        
-                                        }
-                                )
-                        ))
-                    );    
-            },[])
+        <div className="sidebar__headerRight">
+          {/* adding icons from material UI  */}
 
+          <IconButton>
+            {/* after wrapping into IconButton.. you get clickable functionality  */}
+            <AllInclusiveRoundedIcon />
+          </IconButton>
 
+          {/* similarly importing others */}
 
-    return (
-        <div className = "sidebar">
-        
-        {/* we have sections in our sidebar... */}
-        <div className = "sidebar__header">
-<Avatar/>
+          <IconButton>
+            <ChatRoundedIcon />
+          </IconButton>
 
-<div className= "sidebar__headerRight">
-
-{/* adding icons from material UI  */}
-
-<IconButton>
-
-{/* after wrapping into IconButton.. you get clickable functionality  */}
-<AllInclusiveRoundedIcon/>
-
-</IconButton>
-
-{/* similarly importing others */}
-
-<IconButton>
-<ChatRoundedIcon/>
-</IconButton>
-
-
-<IconButton>
-<ExpandMoreSharpIcon/>
-</IconButton>
-
-
+          <IconButton>
+            <ExpandMoreSharpIcon />
+          </IconButton>
         </div>
-        </div> 
+      </div>
 
-        <div className= "sidebar__search">
-        <div className = "sidebar__searchContainer">
-
-        <SearchOutlinedIcon/>
-<input placeholder = "search" type = "text"/>
-
+      <div className="sidebar__search">
+        <div className="sidebar__searchContainer">
+          <SearchOutlinedIcon />
+          <input placeholder="search" type="text" />
         </div>
-</div>
+      </div>
 
-        <div className = "sidebar__chats">
-
-{/* components... */}
-{/* now mapping through */}
-<SidebarChat addNewChat/>
-{rooms.map(room=>(
-                        <SidebarChat key={room.id} id={room.id}
-                        name={room.data.name} />
-                    ))}
-
-        </div>
-
-
-        </div>
-    )
+      <div className="sidebar__chats">
+        {/* components... */}
+        {/* now mapping through */}
+        <SidebarChat addNewChat />
+        {rooms.map((room) => (
+          <SidebarChat key={room.id} id={room.id} name={room.data.name} />
+        ))}
+      </div>
+    </div>
+  );
 }
 
-export default Sidebar
+export default Sidebar;
