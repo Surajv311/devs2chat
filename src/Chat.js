@@ -31,6 +31,10 @@ function Chat() {
 e.preventDefault(); 
 
 console.log('typed->', input);
+
+// cleans input everytime you hit enter
+
+setInput(""); 
         };
           
 
