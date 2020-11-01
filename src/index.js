@@ -4,6 +4,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import * as serviceWorker from "./serviceWorker";
+import reducer, { initialState } from "./reducer";
+import { StateProvider } from "./StateProvider";
 
 //  now stateprovider would wrap the app .....-> like a data layout where we can push in info and pull it ...
 ReactDOM.render(
