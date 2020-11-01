@@ -59,4 +59,5 @@
   flex: 1;
   background-color: rgb(255, 255, 255);
   overflow: scroll;
+  /* border-radius: 25px; */
 }
