@@ -4,6 +4,7 @@ import "./Login.css";
 import { auth, provider } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import { actionTypes } from "./reducer";
+
 function Login() {
   const [{}, dispatch] = useStateValue();
 
@@ -14,6 +15,7 @@ function Login() {
       .then((result) => {
         console.log(result.user);
         dispatch({
+          // dispatch the object...
           type: actionTypes.SET_USER,
           user: result.user,
         });
