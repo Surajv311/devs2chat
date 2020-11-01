@@ -1,0 +1,8 @@
+/* bem naming convention used */
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  /* since sidebar flex= 0.35 so chat flex would be (1-0.35) = 0.65  */
+  flex: 0.65;
+}
