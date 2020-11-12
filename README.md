@@ -1,4 +1,33 @@
-App link : https://devs2chat.web.app/
+# Realtime Chat App - Devs2chat 
+
+The following app uses ReactJS, MaterialUI in the frontend & the backend is integrated with firebase & firestore & O-auth Google login is added.<br> 
+
+![img](https://github.com/Surajv311/devs2chat/blob/main/img/devc.jpg)
+
+#### Commands followed/ Packages used
+
+```npx create-react-app myapp``` <br>
+
+```npm install @material-ui/core``` <br> 
+
+```npm install @material-ui/icons``` <br> 
+
+```npm start ``` <br>
+
+```npm run build``` <br> 
+
+```npm i -g firebase tools```  <br>
+
+```firebase login``` <br>
+
+``` firebase init``` <br>
+
+```  firebase deploy``` <br>
+
+#### Deployment
+
+The app has been delpoyed to firebase. <br> 
+url : [check here](https://devs2chat.web.app/).
 <br> 
 
 # Getting Started with Create React App
