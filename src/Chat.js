@@ -6,8 +6,8 @@ import AttachFileOutlinedIcon from "@material-ui/icons/AttachFileOutlined";
 import ExpandMoreSharpIcon from "@material-ui/icons/ExpandMoreSharp";
 import MoodIcon from "@material-ui/icons/Mood";
 import MicOutlinedIcon from "@material-ui/icons/MicOutlined";
-import { Link, useParams } from "react-router-dom";
-import db, { auth, provider } from "./firebase";
+import { useParams } from "react-router-dom";
+import db from "./firebase";
 import firebase from "firebase";
 import { useStateValue } from "./StateProvider";
 

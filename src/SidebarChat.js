@@ -66,3 +66,11 @@ function SidebarChat({ id, name, addNewChat }) {
 export default SidebarChat;
 
 // react router will help to fetch related data chats of the given room when we visit it
+
+// Stackoverflow...
+// The old way to concatenate a string :
+// var user = 'abc' + myuser;
+
+// ES6:
+// var user = `abc${myuser}`;
+//
