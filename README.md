@@ -1,6 +1,6 @@
 # Realtime Chat App - Devs2chat 
 
-The following app uses ReactJS, MaterialUI in the frontend & the backend is integrated with firebase & firestore & O-auth Google login is added.<br> 
+The following app uses ReactJS, MaterialUI in the frontend & the backend is integrated with firebase & firestore & O-auth Google login is added.
 
 ![img](https://github.com/Surajv311/devs2chat/blob/main/img/devc.jpg)
 
