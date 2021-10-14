@@ -28,10 +28,10 @@ const port = process.env.PORT || 4000;
 const pusher = new Pusher({
   // EXAMPLE...
   // ********ADD THE ID'S IN A .ENV FILE...**********
-  appId: "1130202634625410131113224153",
-  key: "b83118f045432215611232a24352cfdg236a",
-  secret: "b654edertetyt7yaeurb5tu5ytuetyu3u85865a5472u2y1221ty10a",
-  cluster: "jdskjsfdskapsdgsg2euoerwouwioruwr",
+  appId: "",
+  key: "",
+  secret: "",
+  cluster: "",
   useTLS: true,
 });
 
@@ -59,7 +59,7 @@ const connection_url =
 
 // *** USE .ENV FILE... ***
 // do not use this: (as it's for node version>4... & currently using this would give `SRV ERROR`...)
-//'mongodb+srv://admin:ysfdfg5579V06bjkhyt879VvT5F6548eX9w55Wqqyuidvrr863l@cluster0.qa9j4.mongodb.net/dmeet_db?retryWrites=true&w=majority'
+//'mongodb+srv://admin:[PWS__r3243509fdfhetttykiuloirfgvdeterete]@cluster0.qa9j4.mongodb.net/dmeet_db?retryWrites=true&w=majority'
 
 mongoose.connect(connection_url, {
   // to connect smoothly to my mongodb
